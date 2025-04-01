@@ -1,0 +1,4 @@
+git clone https://github.com/xspoilt-dev/pyflow.git
+cd pyflow
+pip install rich
+python flow.py

@@ -1,0 +1,13 @@
+22476,John Roberts,586.62
+24987,Mary Johnson,477.00
+48283,Alice Martin,836.00
+85437,Aaron James,403.75
+
+
+/*
+inputs from timeclock2.txt
+22476,45,1
+24987,30,2
+48283,50,3
+85437,25,3
+*/

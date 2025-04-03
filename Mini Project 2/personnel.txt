@@ -1,0 +1,6 @@
+11235,Bob Smith,10.50
+22476,John Roberts,12.35
+24987,Mary Johnson,15.90
+32743,Brad Carson,11.25
+48283,Alice Martin,14.20
+85437,Aaron James,15.15

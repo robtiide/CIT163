@@ -1,0 +1,79 @@
+Start
+  |
+  v
+Prompt user for filenames (timeclock.txt, personnel.txt)
+  |
+  v
+Check if personnel.txt exists
+  |
+  +--------------------+
+  |                    |
+Yes                   No
+  |                    |
+  v                    v
+Check if timeclock.txt exists   Print error message and exit
+  |
+  +--------------------+
+  |                    |
+Yes                   No
+  |                    |
+  v                    v
+Read personnel.txt into a dictionary (personnel)
+  |
+  v
+Open payroll.txt for writing
+  |
+  v
+Open timeclock.txt for reading
+  |
+  v
+For each line in timeclock.txt:
+  |
+  v
+Split line into employee_number, hours_worked, shift
+  |
+  v
+Check if employee_number exists in personnel dictionary
+  |
+  +--------------------+
+  |                    |
+Yes                   No
+  |                    |
+  v                    v
+Get name and pay_rate from personnel dictionary   Log error or skip entry
+  |
+  v
+If shift == 3:
+  |
+  v
+Add 1.0 to pay_rate
+  |
+  v
+If hours_worked <= 40:
+  |
+  v
+Calculate gross_pay = hours_worked * pay_rate
+  |
+  v
+Else:
+  |
+  v
+Calculate gross_pay = 40 * pay_rate + (hours_worked - 40) * pay_rate * 1.5
+  |
+  v
+Format gross_pay to 2 decimal places
+  |
+  v
+Write employee_number, name, gross_pay to payroll.txt
+  |
+  v
+Repeat for all lines in timeclock.txt
+  |
+  v
+Close payroll.txt
+  |
+  v
+Print "Payroll processing complete. Results written to payroll.txt"
+  |
+  v
+End

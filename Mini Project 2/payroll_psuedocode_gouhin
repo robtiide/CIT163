@@ -1,0 +1,60 @@
+Rob Gouhin
+CIT 163
+Mini Project 2
+April 2, 2024
+
+-- Pseudocode for Payroll Processing Program
+
+ Pseudocode for payroll processing program
+
+BEGIN
+    SET output file to "payroll.txt"
+
+    GET the directory of the current script
+    SET personnel file path to "personnel.txt" in the current directory
+    SET timeclock file path to "timeclock.txt" in the current directory
+
+    CHECK if personnel file exists
+        IF NOT, PRINT error message and EXIT program
+    CHECK if timeclock file exists
+        IF NOT, PRINT error message and EXIT program
+
+    CREATE an empty dictionary (personnel)
+    READ personnel.txt into the dictionary
+        FOR each line in personnel.txt
+            SPLIT line into employee_number, name, and pay_rate
+            TRIM whitespace from values
+            IF line is malformed THEN
+                PRINT warning and SKIP line
+            ELSE
+                CONVERT pay_rate to float
+                ADD employee_number as key and name, pay_rate as values to personnel dictionary
+
+    OPEN payroll.txt for writing
+    WITH timeclock.txt open for reading
+        FOR each line in timeclock.txt
+            SPLIT line into employee_number, hours_worked, and shift
+            TRIM whitespace from values
+            IF line is malformed THEN
+                PRINT warning and SKIP line
+            ELSE
+                CONVERT hours_worked and shift to integers
+                IF employee_number exists in personnel dictionary THEN
+                    GET name and pay_rate from personnel dictionary
+                    IF shift == 3 THEN
+                        ADD 1.0 to pay_rate
+                    CALCULATE overtime_rate = pay_rate * 1.5
+                    IF hours_worked <= 40 THEN
+                        CALCULATE gross_pay = hours_worked * pay_rate
+                    ELSE
+                        CALCULATE gross_pay = 40 * pay_rate + (hours_worked - 40) * overtime_rate
+                    FORMAT gross_pay to 2 decimal places
+                    WRITE employee_number, name, gross_pay to payroll.txt
+                ELSE
+                    PRINT warning and SKIP entry
+        END FOR
+    CLOSE payroll.txt
+
+    PRINT "Payroll processing complete. Results written to payroll.txt"
+END
+"""
